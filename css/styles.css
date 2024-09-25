@@ -1,0 +1,423 @@
+/* Reset y estilos generales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    /* Color celeste claro */
+    color: #000;
+    /* Texto en negro */
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    /* Azul oscuro */
+}
+
+
+/* Encabezado */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #0056b3;
+    /* Azul oscuro */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-inline-end: 10px;
+}
+
+.logo h1 {
+    color: #00aaff;
+    /* Azul celeste */
+    font-size: 1.8rem;
+}
+
+.auth-buttons .btn {
+    background-color: #ffd700;
+    /* Amarillo oscuro */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #ffc107;
+    /* Amarillo más oscuro */
+}
+
+
+/* Navegación */
+
+nav {
+    background-color: #0056b3;
+    /* Azul oscuro */
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 16px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #00aaff;
+    /* Azul celeste */
+}
+
+
+/* Menú desplegable */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0056b3;
+    /* Azul oscuro */
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 16px;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #2b6dbd;
+    /* Azul intermedio */
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #3b597e;
+    /* Azul intermedio */
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Slider */
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #f0f8ff;
+    /* Fondo claro mientras cargan las imágenes */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    border-radius: 8px;
+}
+
+.slides img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider-btn {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 50%;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+    /* Efecto de zoom al pasar el ratón */
+}
+
+.slider-btn.prev {
+    inset-inline-start: 10px;
+}
+
+.slider-btn.next {
+    inset-inline-end: 10px;
+}
+
+
+/* Enlaces rápidos */
+
+.quick-links {
+    padding: 20px;
+    background-color: #e6f1ff;
+    /* Celeste claro */
+    text-align: center;
+}
+
+.quick-links h2 {
+    margin-bottom: 15px;
+    color: #0056b3;
+    /* Azul oscuro */
+    font-size: 1.5rem;
+}
+
+.quick-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: #0056b3;
+    /* Azul oscuro */
+    border-radius: 8px;
+    color: #fff;
+    width: 150px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.quick-link i {
+    font-size: 2rem;
+    margin-block-end: 10px;
+}
+
+.quick-link span {
+    display: block;
+    margin-block-start: 5px;
+}
+
+.quick-link:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #3b597e;
+    /* Azul intermedio */
+    transform: scale(1.05);
+    /* Efecto de zoom al pasar el ratón */
+}
+
+
+/* Pie de página */
+
+footer {
+    background-color: #0056b3;
+    /* Azul oscuro */
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00aaff;
+    /* Azul celeste */
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+.social-media a:hover {
+    color: #00aaff;
+    /* Azul celeste */
+}
+
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset-inline-start: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #e6f1ff;
+    /* Celeste claro */
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.modal-content h2 {
+    color: #0056b3;
+    /* Azul oscuro */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content label {
+    color: #000;
+    /* Texto negro */
+    margin: 10px 0;
+    display: block;
+}
+
+.modal-content input {
+    inline-size: calc(100% - 20px);
+    padding: 10px;
+    margin-block-end: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    /* Texto negro */
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    /* Azul oscuro */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #003a6d;
+    /* Azul más oscuro */
+}
+
+
+/* Botón para cambiar de modo */
+
+#modeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0056b3;
+    /* Azul oscuro */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2000;
+    transition: background-color 0.3s ease;
+}
+
+#modeToggle:hover {
+    background-color: #003a6d;
+    /* Azul más oscuro */
+}
+
+
+/* Modo oscuro */
+
+.dark-mode {
+    background-color: #1b1b1b;
+    /* Fondo oscuro */
+    color: #e0e0e0;
+    /* Texto gris claro */
+}
+
+.dark-mode header,
+.dark-mode nav,
+.dark-mode footer,
+.dark-mode .quick-links,
+.dark-mode .modal-content {
+    background-color: #2c2c2c;
+    /* Fondo ligeramente más claro */
+}
+
+.dark-mode a {
+    color: #4dd0e1;
+    /* Azul más claro para enlaces en modo oscuro */
+}
+
+.dark-mode a:hover {
+    color: #81d4fa;
+    /* Hover más claro para mejor visibilidad */
+}
+
+.dark-mode .auth-buttons .btn {
+    background-color: #ffcc00;
+    color: #1b1b1b;
+}
+
+.dark-mode .auth-buttons .btn:hover {
+    background-color: #ffa500;
+    /* Mejora la visibilidad del botón en hover */
+}

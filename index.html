@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información y recursos sobre seguridad vial para conductores y peatones">
+    <title>Seguridad Vial - Educación y Prevención</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo Seguridad Vial" width="50" height="50">
+            <h1>Servialapp</h1>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn btn-primary" onclick="window.location.href='iniciar-sesion.html'">Iniciar Sesión</button>
+            <button class="btn btn-secondary" onclick="window.location.href='registrarse.html'">Registrarse</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn"><i class="fas fa-info-circle"></i> Información</a>
+                <div class="dropdown-content">
+                    <a href="#"><i class="fas fa-book"></i> Acerca de la página</a>
+                    <a href="#"><i class="fas fa-users"></i> Nosotros</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
+                </div>
+            </li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+            <li><a href="#"><i class="fas fa-car"></i> Consejos de Seguridad</a></li>
+        </ul>
+    </nav>
+
+    <button id="modeToggle" onclick="toggleMode()">Cambiar Modo</button>
+
+    <main>
+        <section class="info-section">
+            <h2>¿Qué es Seguridad Vial?</h2>
+            <p>La seguridad vial es el conjunto de medidas, normas y prácticas destinadas a prevenir accidentes de tráfico y proteger la vida y la salud de todos los usuarios de la vía pública, incluidos conductores, pasajeros, ciclistas y peatones. Abarca
+                desde el respeto a las normas de tránsito hasta el uso adecuado de dispositivos de seguridad y la educación continua sobre prácticas de conducción segura.</p>
+        </section>
+
+        <section class="quick-links">
+            <h2>Contenido Especial</h2>
+            <div class="link-container">
+                <a href="normativa-vial.html" class="quick-link">
+                    <i class="fas fa-book"></i>
+                    <span>Normativa Vial</span>
+                </a>
+                <a href="prevencion-accidentes.html" class="quick-link">
+                    <i class="fas fa-car-crash"></i>
+                    <span>Prevención de Accidentes</span>
+                </a>
+                <a href="cursos.seguridad.html" onclick="checkAccess('cursos.seguridad.html')" class="quick-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Cursos de Seguridad</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Slider de imágenes -->
+        <section class="slider" aria-label="Galería de imágenes de seguridad vial">
+            <div class="slides">
+                <img src="img/imagen2.webp" alt="Conductor respetando señales de tránsito">
+                <img src="img/imagen5.jfif" alt="Peatones cruzando por el paso de cebra">
+                <img src="prue/Designer.jpg" alt="Ciclista usando equipo de seguridad">
+            </div>
+            <button class="slider-btn prev" aria-label="Imagen anterior">&lt;</button>
+            <button class="slider-btn next" aria-label="Siguiente imagen">&gt;</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href=" https://www.facebook.com/profile.php?id=61565673513056" target="_blank" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Mapa del Sitio</a>
+            </div>
+        </div>
+        <p>&copy; 2024 Servialapp. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let isLoggedIn = false;
+
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function checkAccess(url) {
+            if (isLoggedIn) {
+                window.location.href = url;
+            } else {
+                alert('Debes iniciar sesión para acceder a los Cursos de Seguridad.');
+                window.location.href = 'iniciar-sesion.html';
+            }
+        }
+
+        // Slider de imágenes
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
+        document.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // Cambio automático de imágenes cada 5 segundos
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+    </script>
+</body>
+
+</html>
